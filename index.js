@@ -7,7 +7,6 @@ function generatePassword(char) {
   if (data.length) {
     data = data.join("");
   }
-  console.log(data);
   return data;
 }
 
