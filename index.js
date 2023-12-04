@@ -38,6 +38,5 @@ function generatePassword(char) {
     let number = Math.floor(Math.random() * num);
     return number;
   }
-  
-  generatePassword(12);
+
   
