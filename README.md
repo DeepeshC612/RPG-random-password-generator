@@ -3,13 +3,13 @@ Generate random passwords with ease! This npm package allows you to create stron
 
 ## Installation
 ```bash
-npm install rps:random-password-generator
+npm install rps-random-password-generator
 ```
 
 ## Usage
 Simply call the `generatePassword` function and provide the desired length as an argument.
 ```bash
-const randomPassword = require('rps:random-password-generator');
+const randomPassword = require('rps-random-password-generator');
 
 const password = randomPassword.generatePassword(10);
 console.log(password);
@@ -25,7 +25,7 @@ Generates a random password with the specified length.
 
 ## Example
 ```bash
-const randomPassword = require('rps:random-password-generator');
+const randomPassword = require('rps-random-password-generator');
 
 const password = randomPassword.generatePassword(12);
 console.log(password);

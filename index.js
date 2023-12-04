@@ -1,4 +1,4 @@
-function randomKey(char) {
+function generatePassword(char) {
     let data = [];
     for (let i = 0; i < char; i++) {
       let randomNum = getRandom();
@@ -39,5 +39,5 @@ function randomKey(char) {
     return number;
   }
   
-  randomKey(12);
+  generatePassword(12);
   

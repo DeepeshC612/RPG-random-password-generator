@@ -1,5 +1,5 @@
 {
-  "name": "rps:random-password-generator",
+  "name": "rps-random-password-generator",
   "version": "1.0.0",
   "description": "\"Generate password using this npm\"",
   "main": "index.js",
