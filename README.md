@@ -25,13 +25,21 @@ console.log(password);
 This will generate a random password with a length of 10 characters, including a mix of lowercase letters, numeric, and special characters and uppercase letters is excluded as the value is false. Setting the value false will not include that pattern.
 
 ## API
-`generatePassword(length: number): string`
+`generatePassword({ length: number, pattern: { upperCase: boolean, lowerCase: boolean }): string`
 
 Generates a random password with the specified length.
 
 `length` (required): The length of the generated password.
+
 `pattern` (optional): The pattern of the generated password.
-`upperCase` & `lowerCase` & `specialCharacter` & `numeric` (optional): The choice of pattern of the generated password.
+
+`upperCase` (optional): The choice of upper letters true/false of the generated password.
+
+`lowerCase` (optional): The choice of lower letters true/false of the generated password.
+
+`specialCharacter` (optional): The choice of special characters true/false of the generated password.
+
+`numeric` (optional): The choice of numeric true/false of the generated password.
 
 ## Example
 ```bash
