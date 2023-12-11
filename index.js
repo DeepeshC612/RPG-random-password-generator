@@ -1,12 +1,12 @@
-function generatePassword(char) {
+function generatePassword({ length: char, pattern }) {
   let data = [];
   for (let i = 0; i < char; i++) {
-    let randomNum = getRandom();
-    data.push(getPass(randomNum));
+    data.push(getPass(pattern));
   }
   if (data.length) {
     data = data.join("");
   }
+  console.log(data);
   return data;
 }
 
@@ -16,22 +16,30 @@ function getPass(number) {
   let specialChar = "`!#@$%^[&*]_-><.,?;:}|{";
   let upperAlpha = alpha.toUpperCase();
   let result;
-  if (number == 1) {
-    result = upperAlpha[dynamicRandomNum(26)];
-  } else if (number == 2) {
-    result = alpha[dynamicRandomNum(26)];
-  } else if (number == 3) {
-    result = specialChar[dynamicRandomNum(23)];
-  } else {
-    result = num[dynamicRandomNum(10)];
+  let arr = [];
+  if (number?.upperCase) {
+    arr.push(upperAlpha[dynamicRandomNum(26)]);
   }
+  if (number?.lowerCase) {
+    arr.push(alpha[dynamicRandomNum(26)]);
+  }
+  if (number?.specialCharacter) {
+    arr.push(specialChar[dynamicRandomNum(23)]);
+  }
+  if (number?.numeric) {
+    arr.push(num[dynamicRandomNum(10)]);
+  }
+  if (
+    !number ||
+    (Object.keys(number).length == 0 && number.constructor !== Object)
+  ) {
+    arr.push(upperAlpha[dynamicRandomNum(26)], alpha[dynamicRandomNum(26)], specialChar[dynamicRandomNum(23)], num[dynamicRandomNum(10)])
+  }
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  result = arr[randomIndex];
   return result;
 }
 
-function getRandom() {
-  let randomFour = Math.floor(Math.random() * 4) + 1;
-  return randomFour;
-}
 
 function dynamicRandomNum(num) {
   let number = Math.floor(Math.random() * num);

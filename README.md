@@ -1,5 +1,5 @@
 # RPG-random-password-generator
-Generate random passwords with ease! This npm package allows you to create strong and secure passwords by specifying the desired length.
+Generate random passwords with ease! This npm package allows you to create strong and secure passwords by specifying the desired length and pattern.
 
 ## Installation
 ```bash
@@ -7,14 +7,22 @@ npm install rps-random-password-generator
 ```
 
 ## Usage
-Simply call the `generatePassword` function and provide the desired length as an argument.
+call the `generatePassword` function and provide the desired length as an argument. And provide pattern as per the requirement of a password.
 ```bash
 const randomPassword = require('rps-random-password-generator');
 
-const password = randomPassword.generatePassword(10);
+const password = randomPassword.generatePassword({
+  length: 10,
+  pattern: {
+    upperCase: false,
+    lowerCase: true,
+    specialCharacter: true,
+    numeric: true,
+  },
+});
 console.log(password);
 ```
-This will generate a random password with a length of 10 characters, including a mix of lowercase letters, uppercase letters, numeric, and special characters.
+This will generate a random password with a length of 10 characters, including a mix of lowercase letters, numeric, and special characters and uppercase letters is excluded as the value is false. Setting the value false will not include that pattern.
 
 ## API
 `generatePassword(length: number): string`
@@ -22,15 +30,25 @@ This will generate a random password with a length of 10 characters, including a
 Generates a random password with the specified length.
 
 `length` (required): The length of the generated password.
+`pattern` (optional): The pattern of the generated password.
+`upperCase` & `lowerCase` & `specialCharacter` & `numeric` (optional): The choice of pattern of the generated password.
 
 ## Example
 ```bash
 const randomPassword = require('rps-random-password-generator');
 
-const password = randomPassword.generatePassword(12);
+const password = randomPassword.generatePassword({
+  length: 10,
+  pattern: {
+    upperCase: false,
+    lowerCase: true,
+    specialCharacter: true,
+    numeric: true,
+  },
+});
 console.log(password);
 ```
-This will output a random password with a length of 12 characters.
+This will generate a random password with a length of 10 characters, including a mix of lowercase letters, numeric, and special characters and uppercase letters is excluded as the value is false. Setting the value false will not include that pattern. Pattern object is optional skip it if only want random password.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
