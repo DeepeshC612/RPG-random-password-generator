@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "description": "\"Generate password using this npm\"",
   "main": "index.js",
+  "keywords": ["password", "generator", "random", "utility", "security", "pattern", "npm"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
