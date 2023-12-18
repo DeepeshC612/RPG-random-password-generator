@@ -10,6 +10,9 @@ function generatePassword({ length: char, pattern }) {
 }
 
 function getPass(number) {
+  const expectedKeys = ['upperCase', 'lowerCase', 'specialCharacter', 'numeric'];
+  const inputKeys = Object.keys(number);
+  const keysMatch = expectedKeys.every(key => inputKeys.includes(key));
   let alpha = "abcdefghijklmnopqrstuvwxyz";
   let num = "1234567890";
   let specialChar = "`!#@$%^[&*]_-><.,?;:}|{";
@@ -30,11 +33,12 @@ function getPass(number) {
   }
   if (
     !number ||
-    (Object.keys(number).length == 0 && number.constructor !== Object)
+    (Object.keys(number).length == 0 && number.constructor == Object) || !keysMatch
   ) {
     arr.push(upperAlpha[dynamicRandomNum(26)], alpha[dynamicRandomNum(26)], specialChar[dynamicRandomNum(23)], num[dynamicRandomNum(10)])
   }
-  const randomIndex = Math.floor(Math.random() * arr.length);
+  console.log("arr", arr)
+  const randomIndex = Math.floor(Math.random() * arr.length); // 1 - 4
   result = arr[randomIndex];
   return result;
 }
