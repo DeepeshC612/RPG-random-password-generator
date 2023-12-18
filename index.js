@@ -37,8 +37,7 @@ function getPass(number) {
   ) {
     arr.push(upperAlpha[dynamicRandomNum(26)], alpha[dynamicRandomNum(26)], specialChar[dynamicRandomNum(23)], num[dynamicRandomNum(10)])
   }
-  console.log("arr", arr)
-  const randomIndex = Math.floor(Math.random() * arr.length); // 1 - 4
+  const randomIndex = Math.floor(Math.random() * arr.length);
   result = arr[randomIndex];
   return result;
 }
