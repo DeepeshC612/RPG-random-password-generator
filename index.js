@@ -11,8 +11,11 @@ function generatePassword({ length: char, pattern }) {
 
 function getPass(number) {
   const expectedKeys = ['upperCase', 'lowerCase', 'specialCharacter', 'numeric'];
-  const inputKeys = Object.keys(number);
-  const keysMatch = expectedKeys.find(key => inputKeys.includes(key));
+  let keysMatch
+  if(number?.constructor == Object) {
+    const inputKeys = Object?.keys(number);
+    keysMatch = expectedKeys?.find(key => inputKeys.includes(key));
+  }
   let alpha = "abcdefghijklmnopqrstuvwxyz";
   let num = "1234567890";
   let specialChar = "`!#@$%^[&*]_-><.,?;:}|{";
@@ -41,7 +44,6 @@ function getPass(number) {
   result = arr[randomIndex];
   return result;
 }
-
 
 function dynamicRandomNum(num) {
   let number = Math.floor(Math.random() * num);
